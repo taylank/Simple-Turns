@@ -5,6 +5,26 @@
  Be advised that this library has not yet been thoroughly tested in production.
  
  
+Usage:
+```
+// Initialize a new instance of the TurnManager class by specifying a turn order style
+var turnManager = new TurnManager(TurnOrder.PingPong);
+
+// Add a few participants. TestParticipant is just a demo class that inherits from ParticipantBase
+var participant1 = new TestParticipant(teamId: 1);
+var participant2 = new TestParticipant(teamId: 2);
+var participant3 = new TestParticipant(teamId: 2);
+
+// Add some event listeners. To do some UI transitions, reset moves, stats, etc.
+this.turnManager.AddTurnEventListener(new TestRoundListener());
+// Run the system
+turnManager.Begin();
+
+
+// Do some stuff with a game participant and when they are done, call TurnManager.EndTurn()
+await turnManager.EndTurn();
+``` 
+ 
 Features:
 - Can handle an arbitrary number of teams
 - Allows for different styles of turn order (e.g. initiative based, ping-pong, regular)
@@ -54,27 +74,6 @@ async Task SkipToParticipant(uint participantId);
 // Returns a data container that can be saved and later used to rebuild the game state.
 // Need to add a bit more code to make this fully functional, but you can add that yourself too.
 TurnManagerState GetStateData(); 
-```
-
-
-Usage:
-```
-// Initialize a new instance of the TurnManager class by specifying a turn order style
-var turnManager = new TurnManager(TurnOrder.PingPong);
-
-// Add a few participants. TestParticipant is just a demo class that inherits from ParticipantBase
-var participant1 = new TestParticipant(teamId: 1);
-var participant2 = new TestParticipant(teamId: 2);
-var participant3 = new TestParticipant(teamId: 2);
-
-// Add some event listeners. To do some UI transitions, reset moves, stats, etc.
-this.turnManager.AddTurnEventListener(new TestRoundListener());
-// Run the system
-turnManager.Begin();
-
-
-// Do some stuff with a game participant and when they are done, call TurnManager.EndTurn()
-await turnManager.EndTurn();
 ```
 
 Sample Participant Class:
