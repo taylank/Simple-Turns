@@ -186,7 +186,7 @@ namespace Innerverse.SimpleTurns
             await this.ExecuteTurnEvent(this.TurnStartEvent);
         }
 
-        public async Task EndRound()
+        private async Task EndRound()
         {
             // OnRoundEnd
             await this.ExecuteTurnEvent(this.RoundEndEvent);

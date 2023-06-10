@@ -12,16 +12,16 @@ namespace Innerverse.SimpleTurns
         private void Start()
         {
             this.turnManager = new TurnManager(TurnOrder.PingPong);
-            var part1 = new TestParticipant(teamId: 1);
-            var part2 = new TestParticipant(teamId: 2);
-            var part3 = new TestParticipant(teamId: 2);
+            var participant1 = new TestParticipant(teamId: 1);
+            var participant2 = new TestParticipant(teamId: 2);
+            var participant3 = new TestParticipant(teamId: 2);
 
             try
             {
-                this.turnManager.RegisterParticipant(part1);
-                this.turnManager.RegisterParticipant(part2);
-                this.turnManager.RegisterParticipant(part3);
-                this.turnManager.AddTurnEventListener(new RoundListener());
+                this.turnManager.RegisterParticipant(participant1);
+                this.turnManager.RegisterParticipant(participant2);
+                this.turnManager.RegisterParticipant(participant3);
+                this.turnManager.AddTurnEventListener(new TestRoundListener());
                 this.turnManager.Begin();
             }
             catch (Exception e)
@@ -45,7 +45,7 @@ namespace Innerverse.SimpleTurns
         }
     }
 
-    public class RoundListener : ITurnEventListener
+    public class TestRoundListener : ITurnEventListener
     {
         public Task OnTurnEvent(TurnEvent e)
         {

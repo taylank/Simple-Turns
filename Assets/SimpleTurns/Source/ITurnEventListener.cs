@@ -5,6 +5,6 @@ namespace Innerverse.SimpleTurns
     public interface ITurnEventListener
     {
         public Task OnTurnEvent(TurnEvent e);
-        public int EventResponsePriority { get; set; }
+        public int EventResponsePriority { get; }
     }
 }
