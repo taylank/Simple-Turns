@@ -8,7 +8,6 @@ namespace Innerverse.SimpleTurns
         public static void AddParticipant(this Dictionary<uint, List<IParticipant>> collection,
             IParticipant participant, bool insertAsFirst = false)
         {
-            // Trying to convert things to a dictionary per teams, instead of a flat list
             if (collection.TryGetValue(participant.TeamId, out var team))
             {
                 // If team already contains this participant, nothing to do here
