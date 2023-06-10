@@ -49,6 +49,10 @@ async Task SkipParticipant();
 
 // Jump to a particular participant in the turn order
 async Task SkipToParticipant(uint participantId);
+
+// Returns a data container that can be saved and later used to rebuild the game state.
+// Need to add a bit more code to make this fully functional, but you can add that yourself too.
+TurnManagerState GetStateData(); 
 ```
 
 
