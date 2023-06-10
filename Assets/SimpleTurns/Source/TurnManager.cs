@@ -246,6 +246,7 @@ namespace Innerverse.SimpleTurns
         private async Task ExecuteTurnEvent(TurnEvent e)
         {
             if (!this.hasBegun) return;
+            this.turnEventListeners.RemoveAll(t => t == null);
 
             for (var i = 0; i < this.turnEventListeners.Count; i++)
             {
