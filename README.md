@@ -1,7 +1,8 @@
 # SimpleTurns
- An API only library for managing turns in a turn based game. It only deals with managing the turn order, and executing various turn events (begin turn, end turn, begin/end round, etc.). In order to make it as unopinionated as possible, it does not concern itself with any other trappings of the turn based games genre (move tracking, stats, grids, etc).
+ An API only library for managing turns in a turn based game in Unity (you could use it without Unity as well). It only deals with managing the turn order, and executing various turn events (begin turn, end turn, begin/end round, etc.). In order to make it as unopinionated as possible, it does not concern itself with any other trappings of the turn based games genre (move tracking, stats, grids, etc).
  
  You are welcome to use it or extend it for your games. If you notice any bugs, or possible improvements, I would welcome PRs.
+ Be advised that this library has not yet been thoroughly tested in production.
  
  
 Features:
@@ -69,7 +70,11 @@ var participant3 = new TestParticipant(teamId: 2);
 // Add some event listeners. To do some UI transitions, reset moves, stats, etc.
 this.turnManager.AddTurnEventListener(new TestRoundListener());
 // Run the system
-this.turnManager.Begin();
+turnManager.Begin();
+
+
+// Do some stuff with a game participant and when they are done, call TurnManager.EndTurn()
+await turnManager.EndTurn();
 ```
 
 Sample Participant Class:
