@@ -1,0 +1,14 @@
+{
+  "name": "com.innerversegames.simpleturns",
+  "version": "0.2.2",
+  "displayName": "Simple Turns",
+  "description": "A turn management API for Unity",
+  "author": "Innerverse Games",  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "turn based",
+    "unity"
+  ]
+}
