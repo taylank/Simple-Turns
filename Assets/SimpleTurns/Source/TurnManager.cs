@@ -206,11 +206,16 @@ namespace Innerverse.SimpleTurns
 
             // Move the current participant to the end of the team order
             var currentTeam = this.CurrentParticipant.TeamId;
+
+            // Only proceed if there is another participant on the same team to skip to
+            if (this.participantsToGo.Count(p => p.TeamId == currentTeam) <= 1)
+            {
+                return;
+            }
+
             this.participantsToGo.Remove(this.CurrentParticipant);
             var lastIndexOfTeam = this.participantsToGo.FindLastIndex(p => p.TeamId == currentTeam);
-            // If there is no one left of the team, skipping won't do anything.
-            if (lastIndexOfTeam < 0) return;
-            
+
             this.participantsToGo.Insert(lastIndexOfTeam + 1, this.CurrentParticipant);
             
             // Reorder the teams as well so that the order change will persist between turns.
